@@ -40,6 +40,74 @@ header {
   cursor: pointer;
 }
 
+main {
+  padding: 20px 0;
+}
+
+.city {
+  font-size: 38px;
+  line-height: 48px;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weather-info-left {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.weather-info-left strong {
+  color: lightcoral;
+}
+
+.temperature-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon {
+  font-size: 40px;
+}
+
+.temperature {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.unit {
+  font-size: 28px;
+  margin-top: 15px;
+}
+
+.weather-info-right {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.weather-info-right strong {
+  color: lightcoral;
+}
+
+.description-suggestion-container {
+  text-align: center;
+}
+
+.description {
+  color: lightcoral;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 footer {
   border-top: 1px solid #75b4e3;
   color: rgba(0, 0, 0, 0.6);

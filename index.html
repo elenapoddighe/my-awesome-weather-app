@@ -23,13 +23,35 @@
         </header>
 
         <main>
-
             <h1 class="city" id="city">Barcelona</h1>
-            <p>Thursday, 22:59, scattered clouds</p>
-            <br />
-            Humidity: 81%, Wind: 6km/h
-            <div class="temperature">
-                ☁️18°
+
+            <div class="data">
+
+                <div class="weather-info-left" id="weather-info-left">
+                    <p>Thursday, 22:59
+                        <br />
+                        Humidity: <strong>81%</strong>
+                        <br />
+                        Wind: <strong>6km/h</strong>
+                    </p>
+                </div>
+                <div class="temperature-container">
+                    <div class="icon" id="icon">☁️</div>
+                    <div class="temperature" id="icon">18</div>
+                    <div class="unit" id="unit">°</div>
+                </div>
+                <div class="weather-info-right" id="weather-info-right">
+                    <p>Long: <strong class="longitude" id="longitude">5873538583</strong>
+                        <br />
+                        Lat: <strong class="latitude" id="latitude">5365384739</strong>
+                        <br />
+                        Feels like: <strong class="feels-like" id="feels-like"> 18</strong>
+                    </p>
+                </div>
+            </div>
+            <div class="description-suggestion-container">
+                <p class="description" id="description">scattered clouds</p>
+                <p class="suggestion" id="suggestion"></p>
             </div>
         </main>
 
