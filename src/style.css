@@ -112,6 +112,13 @@ main {
   text-transform: capitalize;
 }
 
+.suggestion {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
 .forecast {
   border-top: 1px solid #75b4e3;
   display: flex;
