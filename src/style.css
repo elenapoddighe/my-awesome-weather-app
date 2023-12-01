@@ -140,9 +140,9 @@ main {
 }
 
 .forecast-icon {
-  height: 65px;
+  height: 55px;
   text-align: center;
-  width: 65px;
+  width: 55px;
 }
 
 .forecast-temperature {
@@ -150,8 +150,14 @@ main {
   text-align: center;
 }
 
+.maximum-temp {
+  color: lightcoral;
+  font-weight: bold;
+}
+
 .minimum-temp {
   color: rgba(0, 0, 0, 0.6);
+  font-weight: 500;
 }
 
 footer {
