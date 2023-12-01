@@ -136,10 +136,18 @@ main {
   color: black;
   font-size: 16px;
   padding-left: 10px;
+  text-align: center;
+}
+
+.forecast-icon {
+  height: 65px;
+  text-align: center;
+  width: 65px;
 }
 
 .forecast-temperature {
   font-size: 13px;
+  text-align: center;
 }
 
 .minimum-temp {

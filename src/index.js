@@ -175,32 +175,52 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
-function displayForecast() {
-  let days = ["Fri", "Sat", "Sun", "Mon", "Tue"];
+function getForecast(city) {
+  let apiKey = "e52093t32d4f473a570bb10aoa2ca4e0";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function forecastDay(timestamp) {
+  let currentDate = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let nextDay = new Date(currentDate);
+  nextDay.setDate(currentDate.getDate() + 1);
+  return days[nextDay.getDay()];
+}
+
+function displayForecast(response) {
+  console.log(response.data);
+
   let forecastHtml = "";
 
-  days.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+        `
                 <div class="row">
                     <div class="class-2">
-                        <div class="forecast-date">
-                            ${day}
-                        </div>
-                        <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/scattered-clouds-day.png"
-                            alt="" width="42px">
+                        <div class="forecast-date">${forecastDay(
+                          day.time
+                        )} </div>
+                        
+                        <img src="${
+                          day.condition.icon_url
+                        }" class="forecast-icon" />
+                    
                         <div class="forecast-temperature">
                             <span class="maximum-temp">
-                                18°
+                                ${Math.round(day.temperature.maximum)}°
                             </span>
                             <span class="minimum-temp">
-                                12°
+                                ${Math.round(day.temperature.minimum)}°
                             </span>
                         </div>
                     </div>
                 </div>
                 `;
+    }
   });
 
   let forecast = document.querySelector("#forecast");
@@ -211,4 +231,3 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Barcelona");
-displayForecast();
