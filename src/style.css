@@ -80,11 +80,12 @@ main {
 .temperature {
   font-size: 40px;
   font-weight: bold;
+  margin: 0 3px 0 5px;
 }
 
 .unit {
   font-size: 28px;
-  margin-top: 15px;
+  margin-top: 3px;
 }
 
 .weather-info-right {
