@@ -34,6 +34,8 @@ function refreshWeather(response) {
     'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/433/original/nick-nice-ve-R7PCjJDk-unsplash.jpg?1701356693")';
   let showerRainNightImage =
     'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/434/original/eutah-mizushima-F-t5EpfQNpk-unsplash.jpg?1701357234")';
+  let rainDayImage =
+    'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/435/original/inge-maria-pv2ZlDfstXc-unsplash.jpg?1701357295")';
 
   cityElement.innerHTML = response.data.city;
   timeElement.innerHTML = formatDate(date);
@@ -425,6 +427,38 @@ function refreshWeather(response) {
   ) {
     suggestionElement.innerHTML = "Netflix & chill? ☕️";
     bodyElement.style.backgroundImage = showerRainNightImage;
+  }
+
+  if (iconDescriptionElement === "rain-day" && temperature > 30) {
+    suggestionElement.innerHTML = "Tropical storm? ☂️";
+    bodyElement.style.backgroundImage = rainDayImage;
+  } else if (
+    iconDescriptionElement === "rain-day" &&
+    temperature < 30 &&
+    temperature > 20
+  ) {
+    suggestionElement.innerHTML = "Tropical storm? ☂️";
+    bodyElement.style.backgroundImage = rainDayImage;
+  } else if (iconDescriptionElement === "rain-day" && temperature === 20) {
+    suggestionElement.innerHTML = "At least the temperature is perfect...🫣";
+    bodyElement.style.backgroundImage = rainDayImage;
+  } else if (
+    iconDescriptionElement === "rain-day" &&
+    temperature < 20 &&
+    temperature > 15
+  ) {
+    suggestionElement.innerHTML = "Don't forget 🧥 and ☂️!";
+    bodyElement.style.backgroundImage = rainDayImage;
+  } else if (
+    iconDescriptionElement === "rain-day" &&
+    temperature < 15 &&
+    temperature > 10
+  ) {
+    suggestionElement.innerHTML = "Mandatory: 🧥, 🧣, 🧤, ☂️";
+    bodyElement.style.backgroundImage = rainDayImage;
+  } else if (iconDescriptionElement === "rain-day" && temperature < 10) {
+    suggestionElement.innerHTML = "Do you really want to go out?!";
+    bodyElement.style.backgroundImage = rainDayImage;
   }
 
   getForecast(response.data.city);
