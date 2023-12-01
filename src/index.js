@@ -24,6 +24,8 @@ function refreshWeather(response) {
     'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/424/original/ali-choubin-aO-Wq5CV0z8-unsplash.jpg?1701354815")';
   let scatteredCloudsDayImage =
     'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/426/original/roberto-sorin-w5AIBOeo9Uo-unsplash.jpg?1701355464")';
+  let scatteredCloudsNightImage =
+    'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/427/original/aral-tasher-njMi2OFoQqQ-unsplash.jpg?1701355721")';
 
   cityElement.innerHTML = response.data.city;
   timeElement.innerHTML = formatDate(date);
@@ -221,6 +223,46 @@ function refreshWeather(response) {
     suggestionElement.innerHTML =
       "Beautiful but 🥶, make sure to keep yourself warm!";
     bodyElement.style.backgroundImage = scatteredCloudsDayImage;
+  }
+
+  if (iconDescriptionElement === "scattered-clouds-night" && temperature > 30) {
+    suggestionElement.innerHTML =
+      "🥵 At least the cloud help with the shade! Don't forget 💧 & 🕶️";
+    bodyElement.style.backgroundImage = scatteredCloudsNightImage;
+  } else if (
+    iconDescriptionElement === "scattered-clouds-night" &&
+    temperature < 30 &&
+    temperature > 20
+  ) {
+    suggestionElement.innerHTML = "💧, 🕶️, 🧴 and you are ready to go!";
+    bodyElement.style.backgroundImage = scatteredCloudsNightImage;
+  } else if (
+    iconDescriptionElement === "scattered-clouds-night" &&
+    temperature === 20
+  ) {
+    suggestionElement.innerHTML = "Almost perfect weather, enjoy! 😎";
+    bodyElement.style.backgroundImage = scatteredCloudsNightImage;
+  } else if (
+    iconDescriptionElement === "scattered-clouds-night" &&
+    temperature < 20 &&
+    temperature > 15
+  ) {
+    suggestionElement.innerHTML = "Don't forget that 🧥!";
+    bodyElement.style.backgroundImage = scatteredCloudsNightImage;
+  } else if (
+    iconDescriptionElement === "scattered-clouds-night" &&
+    temperature < 15 &&
+    temperature > 10
+  ) {
+    suggestionElement.innerHTML = "Mandatory: 🧥, 🧣, 🧤, 🕶️";
+    bodyElement.style.backgroundImage = scatteredCloudsNightImage;
+  } else if (
+    iconDescriptionElement === "scattered-clouds-night" &&
+    temperature < 10
+  ) {
+    suggestionElement.innerHTML =
+      "Beautiful but 🥶, make sure to keep yourself warm!";
+    bodyElement.style.backgroundImage = scatteredCloudsNightImage;
   }
 
   getForecast(response.data.city);
