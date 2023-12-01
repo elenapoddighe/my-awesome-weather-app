@@ -42,6 +42,8 @@ function refreshWeather(response) {
     'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/439/original/melody-p-wFN9B3s_iik-unsplash.jpg?1701357654")';
   let snowDayImage =
     'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/443/original/chandler-cruttenden-kM1p1c1q8qo-unsplash.jpg?1701358190")';
+  let snowNightImage =
+    'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/444/original/william-topa-dG8d8JYnnvA-unsplash.jpg?1701358410")';
 
   cityElement.innerHTML = response.data.city;
   timeElement.innerHTML = formatDate(date);
@@ -560,6 +562,14 @@ function refreshWeather(response) {
   } else if (iconDescriptionElement === "snow-day" && temperature < 0) {
     suggestionElement.innerHTML = "🥶🥶🥶! ";
     bodyElement.style.backgroundImage = snowDayImage;
+  }
+
+  if (iconDescriptionElement === "snow-night" && temperature < 10) {
+    suggestionElement.innerHTML = "Yes to: ☃️ 🏂 🎿 ❄️! ";
+    bodyElement.style.backgroundImage = snowNightImage;
+  } else if (iconDescriptionElement === "snow-night" && temperature < 0) {
+    suggestionElement.innerHTML = "Netflix & chill! ☕️ ";
+    bodyElement.style.backgroundImage = snowNightImage;
   }
 
   getForecast(response.data.city);
