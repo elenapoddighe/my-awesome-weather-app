@@ -38,6 +38,8 @@ function refreshWeather(response) {
     'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/435/original/inge-maria-pv2ZlDfstXc-unsplash.jpg?1701357295")';
   let thunderstormDayImage =
     'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/441/original/raychel-sanner-1cJXplTxrmI-unsplash.jpg?1701357734")';
+  let thunderstormNightImage =
+    'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/439/original/melody-p-wFN9B3s_iik-unsplash.jpg?1701357654")';
 
   cityElement.innerHTML = response.data.city;
   timeElement.innerHTML = formatDate(date);
@@ -511,6 +513,44 @@ function refreshWeather(response) {
     bodyElement.style.backgroundImage = thunderstormDayImage;
   }
 
+  if (iconDescriptionElement === "thunderstorm-night" && temperature > 30) {
+    suggestionElement.innerHTML = " 🫣🥵🫣🥵🫣";
+    bodyElement.style.backgroundImage = thunderstormNightImage;
+  } else if (
+    iconDescriptionElement === "thunderstorm-night" &&
+    temperature < 30 &&
+    temperature > 20
+  ) {
+    suggestionElement.innerHTML = "🫣🫣🫣";
+    bodyElement.style.backgroundImage = thunderstormNightImage;
+  } else if (
+    iconDescriptionElement === "thunderstome-night" &&
+    temperature === 20
+  ) {
+    suggestionElement.innerHTML = "At least the temperature is perfect...🫣";
+    bodyElement.style.backgroundImage = thunderstormNightImage;
+  } else if (
+    iconDescriptionElement === "thunderstome-night" &&
+    temperature < 20 &&
+    temperature > 15
+  ) {
+    suggestionElement.innerHTML =
+      "You really need to get out? Be careful! 👀🧥🧣";
+    bodyElement.style.backgroundImage = thunderstormNightImage;
+  } else if (
+    iconDescriptionElement === "thunderstome-night" &&
+    temperature < 15 &&
+    temperature > 10
+  ) {
+    suggestionElement.innerHTML = "Mandatory: 🧥, 🧣, 🧤, ☂️";
+    bodyElement.style.backgroundImage = thunderstormNightImage;
+  } else if (
+    iconDescriptionElement === "thunderstome-night" &&
+    temperature < 10
+  ) {
+    suggestionElement.innerHTML = "Do you really want to go out?!";
+    bodyElement.style.backgroundImage = thunderstormDayImage;
+  }
   getForecast(response.data.city);
 }
 
