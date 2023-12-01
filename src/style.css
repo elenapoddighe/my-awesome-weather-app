@@ -60,7 +60,7 @@ main {
 .weather-info-left {
   color: rgba(0, 0, 0, 0.6);
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 24px;
 }
 
@@ -91,7 +91,7 @@ main {
 .weather-info-right {
   color: rgba(0, 0, 0, 0.6);
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 24px;
 }
 
@@ -107,6 +107,7 @@ main {
   color: lightcoral;
   font-size: 20px;
   font-weight: bold;
+  text-transform: capitalize;
 }
 
 footer {
