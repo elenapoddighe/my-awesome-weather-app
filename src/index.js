@@ -46,6 +46,8 @@ function refreshWeather(response) {
     'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/444/original/william-topa-dG8d8JYnnvA-unsplash.jpg?1701358410")';
   let mistDayImage =
     'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/445/original/ricardo-gomez-angel-jg4pkrwaico-unsplash.jpg?1701358560")';
+  let mistNightImage =
+    'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/446/original/stephen-hamilton-lNIQCHMuOTI-unsplash.jpg?1701358779")';
 
   cityElement.innerHTML = response.data.city;
   timeElement.innerHTML = formatDate(date);
@@ -578,6 +580,12 @@ function refreshWeather(response) {
     suggestionElement.innerHTML =
       "Are you driving today? Make sure to pay attention 👀";
     bodyElement.style.backgroundImage = mistDayImage;
+  }
+
+  if (iconDescriptionElement === "mist-night") {
+    suggestionElement.innerHTML =
+      "Are you driving tonight? Make sure to pay attention 👀";
+    bodyElement.style.backgroundImage = mistNightImage;
   }
 
   getForecast(response.data.city);
