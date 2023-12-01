@@ -391,11 +391,16 @@ function refreshWeather(response) {
     bodyElement.style.backgroundImage = showerRainDayImage;
   }
 
-  if (iconDescriptionElement === "shower-rain-night" && temperature > 30) {
+  if (
+    iconDescriptionElement === "shower-rain-night" &&
+    iconDescriptionElement === "rain-night" &&
+    temperature > 30
+  ) {
     suggestionElement.innerHTML = "Tropical storm? ☂️";
     bodyElement.style.backgroundImage = showerRainNightImage;
   } else if (
     iconDescriptionElement === "shower-rain-night" &&
+    iconDescriptionElement === "rain-night" &&
     temperature < 30 &&
     temperature > 20
   ) {
@@ -403,12 +408,14 @@ function refreshWeather(response) {
     bodyElement.style.backgroundImage = showerRainNightImage;
   } else if (
     iconDescriptionElement === "shower-rain-night" &&
+    iconDescriptionElement === "rain-night" &&
     temperature === 20
   ) {
     suggestionElement.innerHTML = "At least the temperature is perfect...🫣";
     bodyElement.style.backgroundImage = showerRainNightImage;
   } else if (
     iconDescriptionElement === "shower-rain-night" &&
+    iconDescriptionElement === "rain-night" &&
     temperature < 20 &&
     temperature > 15
   ) {
@@ -416,6 +423,7 @@ function refreshWeather(response) {
     bodyElement.style.backgroundImage = showerRainNightImage;
   } else if (
     iconDescriptionElement === "shower-rain-night" &&
+    iconDescriptionElement === "rain-night" &&
     temperature < 15 &&
     temperature > 10
   ) {
@@ -423,13 +431,18 @@ function refreshWeather(response) {
     bodyElement.style.backgroundImage = showerRainNightImage;
   } else if (
     iconDescriptionElement === "shower-rain-night" &&
+    iconDescriptionElement === "rain-night" &&
     temperature < 10
   ) {
     suggestionElement.innerHTML = "Netflix & chill? ☕️";
     bodyElement.style.backgroundImage = showerRainNightImage;
   }
 
-  if (iconDescriptionElement === "rain-day" && temperature > 30) {
+  if (
+    iconDescriptionElement === "rain-day" &&
+    iconDescriptionElement === "rain-night" &&
+    temperature > 30
+  ) {
     suggestionElement.innerHTML = "Tropical storm? ☂️";
     bodyElement.style.backgroundImage = rainDayImage;
   } else if (
