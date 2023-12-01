@@ -26,6 +26,8 @@ function refreshWeather(response) {
     'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/426/original/roberto-sorin-w5AIBOeo9Uo-unsplash.jpg?1701355464")';
   let scatteredCloudsNightImage =
     'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/427/original/aral-tasher-njMi2OFoQqQ-unsplash.jpg?1701355721")';
+  let brokenCloudsDay =
+    'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/429/original/tim-oliver-metz-glFocUiIyWo-unsplash.jpg?1701356115")';
 
   cityElement.innerHTML = response.data.city;
   timeElement.innerHTML = formatDate(date);
@@ -263,6 +265,47 @@ function refreshWeather(response) {
     suggestionElement.innerHTML =
       "Beautiful but 🥶, make sure to keep yourself warm!";
     bodyElement.style.backgroundImage = scatteredCloudsNightImage;
+  }
+
+  if (iconDescriptionElement === "broken-clouds-day" && temperature > 30) {
+    suggestionElement.innerHTML =
+      "🥵 At least the cloud help with the shade! Don't forget to 💧";
+    bodyElement.style.backgroundImage = brokenCloudsDay;
+  } else if (
+    iconDescriptionElement === "broken-clouds-day" &&
+    temperature < 30 &&
+    temperature > 20
+  ) {
+    suggestionElement.innerHTML = "Maybe you want to consider to bring an ☂️?";
+    bodyElement.style.backgroundImage = brokenCloudsDay;
+  } else if (
+    iconDescriptionElement === "broken-clouds-day" &&
+    temperature === 20
+  ) {
+    suggestionElement.innerHTML =
+      "Sky could be better, but the temperature is perfect! 🙃";
+    bodyElement.style.backgroundImage = brokenCloudsDay;
+  } else if (
+    iconDescriptionElement === "broken-clouds-day" &&
+    temperature < 20 &&
+    temperature > 15
+  ) {
+    suggestionElement.innerHTML = "Don't forget that 🧥!";
+    bodyElement.style.backgroundImage = brokenCloudsDay;
+  } else if (
+    iconDescriptionElement === "broken-clouds-day" &&
+    temperature < 15 &&
+    temperature > 10
+  ) {
+    suggestionElement.innerHTML = "Mandatory: 🧥, 🧣, 🧤";
+    bodyElement.style.backgroundImage = brokenCloudsDay;
+  } else if (
+    iconDescriptionElement === "broken-clouds-day" &&
+    temperature < 10
+  ) {
+    suggestionElement.innerHTML =
+      "Beautiful but 🥶, make sure to keep yourself warm!";
+    bodyElement.style.backgroundImage = brokenCloudsDay;
   }
 
   getForecast(response.data.city);
