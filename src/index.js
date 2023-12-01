@@ -20,6 +20,10 @@ function refreshWeather(response) {
     'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/417/original/redd-f-5CPIzjWzGxo-unsplash.jpg?1701352914")';
   let fewCloudsDayImage =
     'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/421/original/wolf-zimmermann-6sf5rf8QYFE-unsplash_%282%29.jpg?1701354314")';
+  let fewCloudsNightImage =
+    'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/424/original/ali-choubin-aO-Wq5CV0z8-unsplash.jpg?1701354815")';
+  let scatteredCloudsDayImage =
+    'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/426/original/roberto-sorin-w5AIBOeo9Uo-unsplash.jpg?1701355464")';
 
   cityElement.innerHTML = response.data.city;
   timeElement.innerHTML = formatDate(date);
@@ -138,6 +142,87 @@ function refreshWeather(response) {
       "Beautiful but 🥶, make sure to keep yourself warm!";
     bodyElement.style.backgroundImage = fewCloudsDayImage;
   }
+
+  if (iconDescriptionElement === "few-clouds-night" && temperature > 30) {
+    suggestionElement.innerHTML =
+      "🥵 At least the cloud help with the shade! Don't forget 💧 & 🕶️";
+    bodyElement.style.backgroundImage = fewCloudsNightImage;
+  } else if (
+    iconDescriptionElement === "few-clouds-night" &&
+    temperature < 30 &&
+    temperature > 20
+  ) {
+    suggestionElement.innerHTML = "💧, 🕶️, 🧴 and you are ready to go!";
+    bodyElement.style.backgroundImage = fewCloudsNightImage;
+  } else if (
+    iconDescriptionElement === "few-clouds-night" &&
+    temperature === 20
+  ) {
+    suggestionElement.innerHTML = "Almost perfect weather, enjoy! 😎";
+    bodyElement.style.backgroundImage = fewCloudsNightImage;
+  } else if (
+    iconDescriptionElement === "few-clouds-night" &&
+    temperature < 20 &&
+    temperature > 15
+  ) {
+    suggestionElement.innerHTML = "Don't forget that 🧥!";
+    bodyElement.style.backgroundImage = fewCloudsNightImage;
+  } else if (
+    iconDescriptionElement === "few-clouds-night" &&
+    temperature < 15 &&
+    temperature > 10
+  ) {
+    suggestionElement.innerHTML = "Mandatory: 🧥, 🧣, 🧤, 🕶️";
+    bodyElement.style.backgroundImage = fewCloudsNightImage;
+  } else if (
+    iconDescriptionElement === "few-clouds-night" &&
+    temperature < 10
+  ) {
+    suggestionElement.innerHTML =
+      "Beautiful but 🥶, make sure to keep yourself warm!";
+    bodyElement.style.backgroundImage = fewCloudsNightImage;
+  }
+
+  if (iconDescriptionElement === "scattered-clouds-day" && temperature > 30) {
+    suggestionElement.innerHTML =
+      "🥵 At least the cloud help with the shade! Don't forget 💧 & 🕶️";
+    bodyElement.style.backgroundImage = scatteredCloudsDayImage;
+  } else if (
+    iconDescriptionElement === "scattered-clouds-day" &&
+    temperature < 30 &&
+    temperature > 20
+  ) {
+    suggestionElement.innerHTML = "💧, 🕶️, 🧴 and you are ready to go!";
+    bodyElement.style.backgroundImage = scatteredCloudsDayImage;
+  } else if (
+    iconDescriptionElement === "scattered-clouds-day" &&
+    temperature === 20
+  ) {
+    suggestionElement.innerHTML = "Almost perfect weather, enjoy! 😎";
+    bodyElement.style.backgroundImage = scatteredCloudsDayImage;
+  } else if (
+    iconDescriptionElement === "scattered-clouds-day" &&
+    temperature < 20 &&
+    temperature > 15
+  ) {
+    suggestionElement.innerHTML = "Don't forget that 🧥!";
+    bodyElement.style.backgroundImage = scatteredCloudsDayImage;
+  } else if (
+    iconDescriptionElement === "scattered-clouds-day" &&
+    temperature < 15 &&
+    temperature > 10
+  ) {
+    suggestionElement.innerHTML = "Mandatory: 🧥, 🧣, 🧤, 🕶️";
+    bodyElement.style.backgroundImage = scatteredCloudsDayImage;
+  } else if (
+    iconDescriptionElement === "scattered-clouds-day" &&
+    temperature < 10
+  ) {
+    suggestionElement.innerHTML =
+      "Beautiful but 🥶, make sure to keep yourself warm!";
+    bodyElement.style.backgroundImage = scatteredCloudsDayImage;
+  }
+
   getForecast(response.data.city);
 }
 
