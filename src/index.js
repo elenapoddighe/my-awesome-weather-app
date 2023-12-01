@@ -36,6 +36,8 @@ function refreshWeather(response) {
     'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/434/original/eutah-mizushima-F-t5EpfQNpk-unsplash.jpg?1701357234")';
   let rainDayImage =
     'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/435/original/inge-maria-pv2ZlDfstXc-unsplash.jpg?1701357295")';
+  let thunderstormDayImage =
+    'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/105/441/original/raychel-sanner-1cJXplTxrmI-unsplash.jpg?1701357734")';
 
   cityElement.innerHTML = response.data.city;
   timeElement.innerHTML = formatDate(date);
@@ -438,11 +440,7 @@ function refreshWeather(response) {
     bodyElement.style.backgroundImage = showerRainNightImage;
   }
 
-  if (
-    iconDescriptionElement === "rain-day" &&
-    iconDescriptionElement === "rain-night" &&
-    temperature > 30
-  ) {
+  if (iconDescriptionElement === "rain-day" && temperature > 30) {
     suggestionElement.innerHTML = "Tropical storm? ☂️";
     bodyElement.style.backgroundImage = rainDayImage;
   } else if (
@@ -472,6 +470,45 @@ function refreshWeather(response) {
   } else if (iconDescriptionElement === "rain-day" && temperature < 10) {
     suggestionElement.innerHTML = "Do you really want to go out?!";
     bodyElement.style.backgroundImage = rainDayImage;
+  }
+
+  if (iconDescriptionElement === "thunderstorm-day" && temperature > 30) {
+    suggestionElement.innerHTML = " 🫣🥵🫣🥵🫣";
+    bodyElement.style.backgroundImage = thunderstormDayImage;
+  } else if (
+    iconDescriptionElement === "thunderstorm-day" &&
+    temperature < 30 &&
+    temperature > 20
+  ) {
+    suggestionElement.innerHTML = "🫣🫣🫣";
+    bodyElement.style.backgroundImage = thunderstormDayImage;
+  } else if (
+    iconDescriptionElement === "thunderstorm-day" &&
+    temperature === 20
+  ) {
+    suggestionElement.innerHTML = "At least the temperature is perfect...🫣";
+    bodyElement.style.backgroundImage = thunderstormDayImage;
+  } else if (
+    iconDescriptionElement === "thunderstorm-day" &&
+    temperature < 20 &&
+    temperature > 15
+  ) {
+    suggestionElement.innerHTML =
+      "You really need to get out? Be careful! 👀🧥🧣";
+    bodyElement.style.backgroundImage = thunderstormDayImage;
+  } else if (
+    iconDescriptionElement === "thunderstorm-day" &&
+    temperature < 15 &&
+    temperature > 10
+  ) {
+    suggestionElement.innerHTML = "Mandatory: 🧥, 🧣, 🧤, ☂️";
+    bodyElement.style.backgroundImage = thunderstormDayImage;
+  } else if (
+    iconDescriptionElement === "thunderstorm-day" &&
+    temperature < 10
+  ) {
+    suggestionElement.innerHTML = "Do you really want to go out?!";
+    bodyElement.style.backgroundImage = thunderstormDayImage;
   }
 
   getForecast(response.data.city);
