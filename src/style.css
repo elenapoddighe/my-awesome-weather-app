@@ -79,6 +79,7 @@ main {
 }
 
 .temperature {
+  color: rgba(0, 0, 0, 0.6);
   font-size: 40px;
   font-weight: bold;
   margin: 0 0 0 3px;
